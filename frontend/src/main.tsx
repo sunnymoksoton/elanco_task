@@ -1,3 +1,4 @@
+//runs App.tsx to run the website
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
