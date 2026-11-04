@@ -1,3 +1,5 @@
+#we want git to ignore ts so it doesnt keep updating them
+
 #dependencies
 node_modules/
 
