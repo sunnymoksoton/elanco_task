@@ -1,5 +1,5 @@
 //returns the html to display website
-import { useState } from "react";
+import { useState } from "react"; //hook
 import { APIProvider } from "@vis.gl/react-google-maps";
 
 import Sightings from "./components/Sightings";

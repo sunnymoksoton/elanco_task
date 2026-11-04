@@ -1,3 +1,4 @@
+/* table */
 th {
   background-color: #f8fafc;
   color: #475569;
@@ -8,6 +9,8 @@ th {
 tbody tr:hover {
   background-color: #f8fafc;
 }
+
+/* table */
 
 @media (max-width: 650px) {
   .dashboard {
