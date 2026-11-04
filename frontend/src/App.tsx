@@ -1,9 +1,11 @@
 //returns the html to display website
 import { useState } from "react";
+import { APIProvider } from "@vis.gl/react-google-maps";
 
 import Sightings from "./components/Sightings";
 import Stats from "./components/Stats";
 import Filters from "./components/Filters";
+import TickMap from "./components/TickMap";
 
 import { testSightings } from "./testdata";
 
@@ -38,26 +40,30 @@ function App() {
   });
 
   return (
-    <main className="dashboard">
-      <h1>UK Tick Sightings Dashboard</h1>
+    <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
+      <main className="dashboard">
+        <h1>UK Tick Sightings Dashboard</h1>
 
-      <p className="dashboard-subtitle">
-        Overview of tick sightings across UK cities
-      </p>
+        <p className="dashboard-subtitle">
+          Overview of tick sightings across UK cities
+        </p>
 
-      <Filters
-        cities={cities}
-        species={species}
-        selectedCity={selectedCity}
-        selectedSpecies={selectedSpecies}
-        onCityChange={setSelectedCity}
-        onSpeciesChange={setSelectedSpecies}
-      />
+        <Filters
+          cities={cities}
+          species={species}
+          selectedCity={selectedCity}
+          selectedSpecies={selectedSpecies}
+          onCityChange={setSelectedCity}
+          onSpeciesChange={setSelectedSpecies}
+        />
 
-      <Stats sightings={filteredSightings} />
+        <TickMap />
 
-      <Sightings sightings={filteredSightings} />
-    </main>
+        <Stats sightings={filteredSightings} />
+
+        <Sightings sightings={filteredSightings} />
+      </main>
+    </APIProvider>
   );
 }
 
