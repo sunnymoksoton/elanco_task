@@ -57,7 +57,7 @@ function App() {
           onSpeciesChange={setSelectedSpecies}
         />
 
-        <TickMap />
+        <TickMap sightings={filteredSightings} />
 
         <Stats sightings={filteredSightings} />
 
