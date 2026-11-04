@@ -30,6 +30,7 @@ function TickMap({sightings}: TickMapProps)
             {
                 cities.map((city) => {
                     const position = cityCoords[city];
+                    if (!position) return null;
                     const count = sightings.filter((sighting) => sighting.location === city).length;
                     return (
                         <AdvancedMarker
