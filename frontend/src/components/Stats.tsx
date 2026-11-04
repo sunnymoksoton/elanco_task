@@ -1,34 +1,38 @@
 //gives html for statistics
 
-import { testSightings } from "../testdata";
+import { type Sighting } from "../types/sighting";
 
-function Stats()
-{
-    const totalSightings = testSightings.length;
+interface StatsProps { //prop for passing info between components
+  sightings: Sighting[];
+}
 
-    const totalCities = new Set( //set since need unique
-        testSightings.map((sighting) => sighting.location)
-    ).size; //set uses size
+function Stats({ sightings }: StatsProps) {
+  const totalSightings = sightings.length;
 
-    const totalSpecies = new Set(
-        testSightings.map((sighting) => sighting.species)
-    ).size;
+  const totalCities = new Set(
+    sightings.map((sighting) => sighting.location)
+  ).size;
 
-    const stats = [
-        {
-            title: "Total Sightings",
-            value: totalSightings
-        },
-        {
-            title: "Total Cities with Sightings",
-            value: totalCities
-        },
-        {
-            title: "Species Categories",
-            value: totalSpecies
-        }
-    ];
-    return (
+  const totalSpecies = new Set(
+    sightings.map((sighting) => sighting.species)
+  ).size;
+
+  const stats = [
+    {
+      title: "Total Sightings",
+      value: totalSightings,
+    },
+    {
+      title: "Total Cities with Sightings",
+      value: totalCities,
+    },
+    {
+      title: "Unique Tick Species",
+      value: totalSpecies,
+    },
+  ];
+
+  return (
     <div className="stats">
       {stats.map((stat) => (
         <div className="stat-card" key={stat.title}>

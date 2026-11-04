@@ -1,9 +1,13 @@
 //returns da sightings in test data in html
-import { testSightings } from "../testdata";
 
-function Sightings() 
-{
-    return(
+import { type Sighting } from "../types/sighting";
+
+interface SightingsProps { //prop to pass data between components
+  sightings: Sighting[];
+}
+
+function Sightings({ sightings }: SightingsProps) {
+  return (
     <div className="sightings-container">
       <h2>Sightings</h2>
 
@@ -14,13 +18,13 @@ function Sightings()
             <th>Date</th>
             <th>Location</th>
             <th>Species</th>
-            <th>latinName</th>
+            <th>Latin Name</th>
           </tr>
         </thead>
 
         <tbody>
-          {testSightings.map((sighting) => ( //map to loop through all sightings in testSightings, then set id is key 
-            <tr key={sighting.id}> 
+          {sightings.map((sighting) => (
+            <tr key={sighting.id}>
               <td>{sighting.id}</td>
               <td>{sighting.date}</td>
               <td>{sighting.location}</td>
@@ -31,7 +35,7 @@ function Sightings()
         </tbody>
       </table>
     </div>
-    );
+  );
 }
 
 export default Sightings;
