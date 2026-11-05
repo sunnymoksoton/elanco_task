@@ -44,6 +44,13 @@ export const testSightings: Sighting[] = [
         species: "bombo",
         latinName: "bombadin cladius"
     },
+    {
+        id: "00000007",
+        date: "2/1/2026",
+        location: "Southampton",
+        species: "tra",
+        latinName: "tralelia trala"
+    },
 
 
 ]

@@ -1,10 +1,10 @@
 
-interface FiltersProps { //props for passing data between components
+interface FiltersProps { //App will first filter data based on filters before using it to display stats and map
   cities: string[];
   species: string[];
   selectedCity: string;
   selectedSpecies: string;
-  onCityChange: (city: string) => void; //function that runs when city is changed
+  onCityChange: (city: string) => void; //function that updates selected city
   onSpeciesChange: (species: string) => void; //etc
 }
 
@@ -18,14 +18,20 @@ function Filters({cities, species, selectedCity, selectedSpecies, onCityChange, 
         <select
           id="city-filter"
           value={selectedCity}
-          onChange={(event) => onCityChange(event.target.value)}//target is element that triggered event, value is value of target (here is city selected)
+          onChange=
+          {
+            (event) => onCityChange(event.target.value)
+          }//target is element that triggered event, value is value of target (here is city selected)
         >
           <option value="">All cities</option>
-          {cities.map((city) => ( //we want to create an option for each city
-            <option key={city} value={city}>
-              {city}
-            </option>
-          ))}
+          {
+            cities.map((city) => ( //we want to create an option for each city
+              <option key={city} value={city}>
+                {city}
+              </option>
+              )
+            )
+          }
         </select>
       </div>
 
@@ -39,11 +45,14 @@ function Filters({cities, species, selectedCity, selectedSpecies, onCityChange, 
         >
           <option value="">All species</option>
 
-          {species.map((item) => (
-            <option key={item} value={item}>
-              {item}
-            </option>
-          ))}
+          {
+            species.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+              )
+            )
+          }
         </select>
       </div>
     </div>

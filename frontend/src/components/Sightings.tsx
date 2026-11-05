@@ -23,15 +23,18 @@ function Sightings({ sightings }: SightingsProps) {
         </thead>
 
         <tbody>
-          {sightings.map((sighting) => (
-            <tr key={sighting.id}>
-              <td>{sighting.id}</td>
-              <td>{sighting.date}</td>
-              <td>{sighting.location}</td>
-              <td>{sighting.species}</td>
-              <td>{sighting.latinName}</td>
-            </tr>
-          ))}
+          {
+            sightings.map((sighting) => (
+              <tr key={sighting.id}>
+                <td>{sighting.id}</td>
+                <td>{sighting.date}</td>
+                <td>{sighting.location}</td>
+                <td>{sighting.species}</td>
+                <td>{sighting.latinName}</td>
+              </tr>
+              )
+            )
+          }
         </tbody>
       </table>
     </div>
