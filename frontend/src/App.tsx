@@ -6,6 +6,7 @@ import Sightings from "./components/Sightings";
 import Stats from "./components/Stats";
 import Filters from "./components/Filters";
 import TickMap from "./components/TickMap";
+import Sidebar from "./components/layout/Sidebar";
 
 import { testSightings } from "./testdata";
 import { getSeverity } from "./services/severity";
@@ -74,7 +75,10 @@ function App() {
 
   return (
     <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
-      <main className="dashboard">
+      <div className="app-layout">
+        <Sidebar/>
+        
+        <main className="dashboard">
         <h1>UK Tick Sightings Dashboard</h1>
 
         <p className="dashboard-subtitle">
@@ -100,6 +104,8 @@ function App() {
 
         <Sightings sightings={filteredSightings} />
       </main>
+      </div>
+      
     </APIProvider>
   );
 }
