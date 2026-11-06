@@ -10,6 +10,7 @@ import Sidebar from "./components/layout/Sidebar";
 
 import { testSightings } from "./testdata";
 import { getSeverity } from "./services/severity";
+import { type Sighting } from "./types/sighting";
 
 import "./App.css";
 
@@ -23,7 +24,7 @@ function App() {
   const [selectedSpecies, setSelectedSpecies] = useState("");
   const [selectedDateRange, setSelectedDateRange] = useState("all");
   const [selectedSeverity, setSelectedSeverity] = useState("all")
-
+  const [selectedSighting, setSelectedSighting] = useState<Sighting | null>(null);
   // Get all unique cities from the sightings
   const cities = [...new Set( //... converts a set into an array, "spreading" the set
     testSightings.map((sighting) => sighting.location)
@@ -102,7 +103,10 @@ function App() {
 
         <Stats sightings={filteredSightings} />
 
-        <Sightings sightings={filteredSightings} />
+        <Sightings 
+          sightings={filteredSightings} 
+          onSightingSelect={setSelectedSighting}
+        />
       </main>
       </div>
       

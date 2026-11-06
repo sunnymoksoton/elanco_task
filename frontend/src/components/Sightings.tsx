@@ -4,9 +4,10 @@ import { type Sighting } from "../types/sighting";
 
 interface SightingsProps { //prop to pass data between components
   sightings: Sighting[];
+  onSightingSelect: (sighting: Sighting) => void;
 }
 
-function Sightings({ sightings }: SightingsProps) {
+function Sightings({ sightings, onSightingSelect }: SightingsProps) {
   return (
     <div className="sightings-container">
       <h2>Sightings</h2>
@@ -25,7 +26,11 @@ function Sightings({ sightings }: SightingsProps) {
         <tbody>
           {
             sightings.map((sighting) => (
-              <tr key={sighting.id}>
+              <tr 
+                key={sighting.id}
+                onClick={() => onSightingSelect}
+                className="clickable-row"  
+              >
                 <td>{sighting.id}</td>
                 <td>{sighting.date}</td>
                 <td>{sighting.location}</td>
