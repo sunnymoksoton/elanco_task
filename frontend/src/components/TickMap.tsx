@@ -1,5 +1,6 @@
 import {Map, AdvancedMarker, Pin, InfoWindow} from "@vis.gl/react-google-maps";
 import { type Sighting } from "../types/sighting";
+import { getSeverity } from "../services/severity";
 import { useState } from "react"; //hook
 
 interface TickMapProps
@@ -12,8 +13,6 @@ interface TickMapProps
 function getCities(sightings: Sighting[]){
     return [...new Set(sightings.map((sighting) => sighting.location))];
 }
-
-
 
 function getSightingsInCity(sightings: Sighting[], city: string|null){
     return sightings.filter((sighting) => sighting.location === city);
@@ -61,13 +60,14 @@ function TickMap({sightings}: TickMapProps)
                         const position = cityCoords[city];
                         if (!position) return null; //if city has no coordinates skip it
                         const count = getSightingsInCity(sightings, city).length;
-
+                        
+                        const severity = getSeverity(count);
                         let markerColour = "green";
-                        if (count >10) 
+                        if (severity === "high") 
                         {
                             markerColour = "red";
                         }
-                        else if (count > 4)
+                        else if (severity === "medium")
                         {
                             markerColour = "orange";
                         }

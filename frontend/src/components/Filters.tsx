@@ -4,11 +4,15 @@ interface FiltersProps { //App will first filter data based on filters before us
   species: string[];
   selectedCity: string;
   selectedSpecies: string;
+  selectedDateRange: string;
+  selectedSeverity: string;
   onCityChange: (city: string) => void; //function that updates selected city
   onSpeciesChange: (species: string) => void; //etc
+  onDateRangeChange: (dateRange: string) => void;
+  onSeverityChange: (severity: string) => void;
 }
 
-function Filters({cities, species, selectedCity, selectedSpecies, onCityChange, onSpeciesChange,}: FiltersProps) 
+function Filters({cities, species, selectedCity, selectedSpecies, selectedDateRange, selectedSeverity, onCityChange, onSpeciesChange, onDateRangeChange, onSeverityChange}: FiltersProps) 
 {
   return (
     <div className="filters-container">
@@ -53,6 +57,35 @@ function Filters({cities, species, selectedCity, selectedSpecies, onCityChange, 
               )
             )
           }
+        </select>
+      </div>
+      <div className="filter-group">
+        <label htmlFor="date-filter">Date range</label>
+        <select
+          id="date-filter"
+          value={selectedDateRange}
+          onChange={(event) => onDateRangeChange(event.target.value)}
+        >
+          <option value="all">All time</option>
+          <option value="14">Last 14 days</option>
+          <option value="30">Last 30 days</option>
+          <option value="90">Last 90 days</option>
+
+        </select>
+      </div>
+
+      <div className="filter-group">
+        <label htmlFor="severity-filter">Severity</label>
+        <select
+          id="severity-filter"
+          value={selectedSeverity}
+          onChange={(event) => onSeverityChange(event.target.value)}
+        >
+          <option value="all">All severity</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+
         </select>
       </div>
     </div>
