@@ -7,6 +7,7 @@ import Stats from "./components/Stats";
 import Filters from "./components/Filters";
 import TickMap from "./components/TickMap";
 import Sidebar from "./components/layout/Sidebar";
+import SightingDetails from "./components/SightingDetails";
 
 import { testSightings } from "./testdata";
 import { getSeverity } from "./services/severity";
@@ -107,7 +108,12 @@ function App() {
           sightings={filteredSightings} 
           onSightingSelect={setSelectedSighting}
         />
-      </main>
+        </main>
+        <SightingDetails
+          selectedSighting={selectedSighting}
+          allSightings={testSightings}
+          onClose={() => setSelectedSighting(null)}
+        />
       </div>
       
     </APIProvider>

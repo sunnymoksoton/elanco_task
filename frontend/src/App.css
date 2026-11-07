@@ -197,3 +197,163 @@
 .clickable-row:hover {
   background-color: #dceaf2 !important;
 }
+
+/* Sighting details panel */
+.sighting-details {
+  width: 340px;
+  flex-shrink: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 26px 22px;
+  background-color: #ffffff;
+  border-left: 1px solid #dce6ed;
+  box-shadow: -3px 0 12px rgba(36, 75, 104, 0.04);
+  animation: slideIn 0.25s ease-out;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e5edf2;
+}
+
+.details-header h2 {
+  color: #244b68;
+  font-size: 18px;
+  margin: 0;
+}
+
+.details-close {
+  border: none;
+  background: #f2f6f9;
+  color: #526b7a;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.details-close:hover {
+  background: #dceaf2;
+}
+
+.details-content {
+  padding-top: 22px;
+}
+
+.details-label {
+  color: #718896;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  margin: 20px 0 6px;
+}
+
+.details-value {
+  color: #244b68;
+  font-size: 15px;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.details-related {
+  margin-top: 32px;
+  padding: 16px;
+  background: #f2f6f9;
+  border-radius: 10px;
+}
+
+.details-related h3 {
+  color: #244b68;
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.details-related p,
+.details-empty p {
+  color: #526b7a;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.details-empty {
+  padding-top: 24px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .sighting-details {
+    width: 300px;
+  }
+}
+
+@media (max-width: 650px) {
+  .sighting-details {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    width: min(100%, 360px);
+    height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+/* Species information inside details panel */
+.species-info {
+  margin-top: 28px;
+  padding: 18px;
+  background-color: #f2f6f9;
+  border: 1px solid #dce6ed;
+  border-radius: 12px;
+}
+
+.species-info h3 {
+  color: #244b68;
+  font-size: 17px;
+  margin: 0 0 10px;
+}
+
+.species-common-name {
+  color: #467b9d;
+  font-weight: 600;
+}
+
+.species-info h4 {
+  color: #244b68;
+  font-size: 13px;
+  margin: 18px 0 6px;
+}
+
+.species-info p {
+  color: #526b7a;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* warning if species has weird alias */
+.species-warning {
+  background-color: #fff3cd;
+  color: #765b16;
+  border: 1px solid #ead58b;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}

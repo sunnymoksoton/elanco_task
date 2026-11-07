@@ -28,7 +28,7 @@ function Sightings({ sightings, onSightingSelect }: SightingsProps) {
             sightings.map((sighting) => (
               <tr 
                 key={sighting.id}
-                onClick={() => onSightingSelect}
+                onClick={() => onSightingSelect(sighting)}
                 className="clickable-row"  
               >
                 <td>{sighting.id}</td>

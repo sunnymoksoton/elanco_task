@@ -34,8 +34,8 @@ export const testSightings: Sighting[] = [
         id: "00000005",
         date: "2026-11-01",
         location: "Southampton",
-        species: "bombo",
-        latinName: "bombadin cladius"
+        species: "sheep tick",
+        latinName: "ixodes ricinus"
     },
     {
         id: "00000006",
@@ -51,6 +51,12 @@ export const testSightings: Sighting[] = [
         species: "tra",
         latinName: "tralelia trala"
     },
-
+    {
+        id: "00000008",
+        date: "2026-11-01",
+        location: "London",
+        species: "passerine tick",
+        latinName: "dermacentor frontalis"
+    },
 
 ]
