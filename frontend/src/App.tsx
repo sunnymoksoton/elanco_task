@@ -10,6 +10,7 @@ import Sidebar from "./components/layout/Sidebar";
 import SightingDetails from "./components/SightingDetails";
 import Timeline from "./components/Timeline";
 import Education from "./components/Education";
+import ReportSighting from "./components/ReportSighting";
 
 import { testSightings } from "./testdata";
 import { getSeverity } from "./services/severity";
@@ -127,7 +128,7 @@ function App() {
           {activePage === "learn" && <Education />}
 
           {activePage === "report" && (
-            <h1>Report a Sighting — Coming Soon</h1>
+            <ReportSighting />
           )}
 
           {activePage === "about" && (
