@@ -56,3 +56,13 @@
   color: #25404d;
   font-weight: 600;
 }
+
+.nav-link {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+}

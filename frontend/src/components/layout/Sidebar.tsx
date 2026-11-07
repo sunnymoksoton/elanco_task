@@ -1,6 +1,13 @@
 import "./Sidebar.css";
 
-function Sidebar() {
+export type Page = "dashboard" | "learn" | "report" | "about";
+
+interface SidebarProps {
+  activePage: Page;
+  onPageChange: (page: Page) => void;
+}
+
+function Sidebar({ activePage, onPageChange }: SidebarProps) {
   return (
     <aside className="sidebar">
       <div className="sidebar-brand">
@@ -10,24 +17,37 @@ function Sidebar() {
       <nav className="sidebar-nav">
         <p className="nav-heading">WORKSPACE</p>
 
-        <a href="#dashboard" className="nav-link active">
+        <button
+          className={`nav-link ${activePage === "dashboard" ? "active" : ""}`}
+          onClick={() => onPageChange("dashboard")}
+        >
           Dashboard
-        </a>
+        </button>
 
-        <a href="#learn" className="nav-link">
-          Learn
-        </a>
+        <button
+          className={`nav-link ${activePage === "learn" ? "active" : ""}`}
+          onClick={() => onPageChange("learn")}
+        >
+          Education
+        </button>
 
-        <a href="#report" className="nav-link">
+        <button
+          className={`nav-link ${activePage === "report" ? "active" : ""}`}
+          onClick={() => onPageChange("report")}
+        >
           Report a Sighting
-        </a>
+        </button>
 
-        <a href="#about" className="nav-link">
+        <button
+          className={`nav-link ${activePage === "about" ? "active" : ""}`}
+          onClick={() => onPageChange("about")}
+        >
           About
-        </a>
+        </button>
       </nav>
     </aside>
   );
 }
+
 
 export default Sidebar;

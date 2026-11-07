@@ -8,10 +8,13 @@ import Filters from "./components/Filters";
 import TickMap from "./components/TickMap";
 import Sidebar from "./components/layout/Sidebar";
 import SightingDetails from "./components/SightingDetails";
+import Timeline from "./components/Timeline";
+import Education from "./components/Education";
 
 import { testSightings } from "./testdata";
 import { getSeverity } from "./services/severity";
 import { type Sighting } from "./types/sighting";
+import { type Page } from "./components/layout/Sidebar";
 
 import "./App.css";
 
@@ -26,6 +29,7 @@ function App() {
   const [selectedDateRange, setSelectedDateRange] = useState("all");
   const [selectedSeverity, setSelectedSeverity] = useState("all")
   const [selectedSighting, setSelectedSighting] = useState<Sighting | null>(null);
+  const [activePage, setActivePage] = useState<Page>("dashboard");
   // Get all unique cities from the sightings
   const cities = [...new Set( //... converts a set into an array, "spreading" the set
     testSightings.map((sighting) => sighting.location)
@@ -78,42 +82,65 @@ function App() {
   return (
     <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
       <div className="app-layout">
-        <Sidebar/>
+        <Sidebar
+          activePage={activePage}
+          onPageChange={(page) => {
+            setActivePage(page);
+            setSelectedSighting(null);
+          }}
+        />
         
         <main className="dashboard">
-        <h1>UK Tick Sightings Dashboard</h1>
+          {activePage === "dashboard" && (
+            <>
+            <h1>UK Tick Sightings Dashboard</h1>
 
-        <p className="dashboard-subtitle">
-          Overview of tick sightings across UK cities
-        </p>
+            <p className="dashboard-subtitle">
+              Overview of tick sightings across UK cities
+            </p>
 
-        <Filters
-          cities={cities}
-          species={species}
-          selectedCity={selectedCity}
-          selectedSpecies={selectedSpecies}
-          selectedDateRange={selectedDateRange}
-          selectedSeverity={selectedSeverity}
-          onCityChange={setSelectedCity}
-          onSpeciesChange={setSelectedSpecies}
-          onDateRangeChange={setSelectedDateRange}
-          onSeverityChange={setSelectedSeverity}
-        />
+            <Filters
+              cities={cities}
+              species={species}
+              selectedCity={selectedCity}
+              selectedSpecies={selectedSpecies}
+              selectedDateRange={selectedDateRange}
+              selectedSeverity={selectedSeverity}
+              onCityChange={setSelectedCity}
+              onSpeciesChange={setSelectedSpecies}
+              onDateRangeChange={setSelectedDateRange}
+              onSeverityChange={setSelectedSeverity}
+            />
 
-        <TickMap sightings={filteredSightings} />
+            <TickMap sightings={filteredSightings} />
 
-        <Stats sightings={filteredSightings} />
+            <Stats sightings={filteredSightings} />
 
-        <Sightings 
-          sightings={filteredSightings} 
-          onSightingSelect={setSelectedSighting}
-        />
+            <Timeline sightings={testSightings} />
+
+            <Sightings 
+              sightings={filteredSightings} 
+              onSightingSelect={setSelectedSighting}
+            />
+            </>
+          )}
+          {activePage === "learn" && <Education />}
+
+          {activePage === "report" && (
+            <h1>Report a Sighting — Coming Soon</h1>
+          )}
+
+          {activePage === "about" && (
+            <h1>About TickWatch — Coming Soon</h1>
+          )}
         </main>
-        <SightingDetails
+        {activePage === "dashboard" && (
+          <SightingDetails
           selectedSighting={selectedSighting}
           allSightings={testSightings}
           onClose={() => setSelectedSighting(null)}
         />
+        )}
       </div>
       
     </APIProvider>

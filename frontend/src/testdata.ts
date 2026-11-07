@@ -58,5 +58,12 @@ export const testSightings: Sighting[] = [
         species: "passerine tick",
         latinName: "dermacentor frontalis"
     },
+    {
+        id: "00000009",
+        date: "2026-06-15",
+        location: "Southampton",
+        species: "tra",
+        latinName: "tralelia trala"
+    },
 
 ]

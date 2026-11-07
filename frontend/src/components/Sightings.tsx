@@ -10,8 +10,8 @@ interface SightingsProps { //prop to pass data between components
 function Sightings({ sightings, onSightingSelect }: SightingsProps) {
   return (
     <div className="sightings-container">
-      <h2>Sightings</h2>
-
+      <h2>Sightings table</h2>
+      <p>click a row to view sighting details</p>
       <table>
         <thead>
           <tr>
