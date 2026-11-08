@@ -9,20 +9,20 @@ Supabase postgresql database service was used to store report sightings.
 This project is for the frontend task.
 
 It meets the following requirements:
-1. Interactive Map Visualisation
-  a. Dynamic map interface: displaying tick sightings across the UK
-  b. Markers: with visual indicators (severity, recent activity and species)
+1. Interactive Map Visualisation  
+  a. Dynamic map interface: displaying tick sightings across the UK  
+  b. Markers: with visual indicators (severity, recent activity and species)  
   c. Filter controls: data range, species type, severity level
 
-2. Sighting Information:
-  a. Modal or Sidebar panel: with detailed sighting information when the user clicks on a sighting on the map.
-  b. Timeline view: showing activity progression in an area
+2. Sighting Information:  
+  a. Modal or Sidebar panel: with detailed sighting information when the user clicks on a sighting on the map.  
+  b. Timeline view: showing activity progression in an area  
 
-3. Education Content:
-  a. Species identification guide: Guide with species
-  b. Prevention tips: Guide with prevention guidelines
+3. Education Content:  
+  a. Species identification guide: Guide with species  
+  b. Prevention tips: Guide with prevention guidelines  
 
-4. Report a sighting:
-  a. Form to Report Sighting: form with information to add a sighting (date, time, location, species) 
+4. Report a sighting:  
+  a. Form to Report Sighting: form with information to add a sighting (date, time, location, species)   
   b. Form validation: with error, warning and success messages
 
