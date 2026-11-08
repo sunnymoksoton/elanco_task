@@ -1,3 +1,7 @@
+## stack choices
+#React js frontend
+
+
 To run the project:  
 make sure you have node.js installed, which includes npm
 
