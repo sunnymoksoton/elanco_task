@@ -52,7 +52,8 @@ function App() {
           ? NaN
           : Number(selectedDateRange);
       const cutoffDate = new Date(today);
-      cutoffDate.setDate(today.getDate() - daysAgo);
+      cutoffDate.setDate(today.getDate() - daysAgo); 
+      //console.log(new Date(`2026-11-01T06:40:31`) > cutoffDate)
       return selectedDateRange === "all" || (sightingDate >= cutoffDate);
   });
 
@@ -94,7 +95,7 @@ function App() {
         <main className="dashboard">
           {activePage === "dashboard" && (
             <>
-            <h1>UK Tick Sightings Dashboard</h1>
+            <h1>UK Tick Sightings</h1>
 
             <p className="dashboard-subtitle">
               Overview of tick sightings across UK cities
@@ -132,7 +133,11 @@ function App() {
           )}
 
           {activePage === "about" && (
-            <h1>About TickWatch — Coming Soon</h1>
+            <>
+            <h1>About</h1>
+            <p>This tick monitor was developed by Sunny with help from ChatGPT.</p>
+            </>
+            
           )}
         </main>
         {activePage === "dashboard" && (

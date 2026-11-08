@@ -39,7 +39,19 @@ function TickMap({sightings}: TickMapProps)
     const cityCoords: Record<string, {lat: number, lng: number}> =
     {
         Southampton: {lat: 50.9, lng: -1.4},
-        London: {lat: 51.5, lng: -0.1}
+        London: {lat: 51.5, lng: -0.1},
+        Birmingham: {lat: 52.5, lng: -1.9},
+        Bristol: {lat: 51.5, lng: -2.6},
+        Cardiff: {lat: 51.5, lng: -3.2},
+        Edinburgh: {lat: 55.95, lng: -3.19},
+        Glasgow: {lat: 55.87, lng: -4.25},
+        Leeds: {lat: 53.8, lng: -1.5},
+        Leicester: {lat: 52.6, lng: -1.1},
+        Liverpool: {lat: 53.4, lng: -3},
+        Manchester: {lat: 53.5, lng: -2.2},
+        Newcastle: {lat: 55, lng: -1.6},
+        Nottingham: {lat: 52.95, lng: -1.15},
+        Sheffield: {lat: 53.38, lng: -1.46},
     };
 
     const cities = getCities(sightings);
