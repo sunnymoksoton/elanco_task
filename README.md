@@ -1,4 +1,4 @@
-## disclaimer
+## Disclaimer
 Development of this project included the use of GenAI (ChatGPT).
 
 ## Stack choices
