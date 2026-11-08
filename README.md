@@ -1,11 +1,11 @@
-## stack choices
-React js used for the frontend. 
-Typescript used as the programming language.
-CSS used for styling of application.
-Google maps API was used for dynamic map.
-Supabase postgresql database service was used to store report sightings.
+## Stack choices
+React js used for the frontend.   
+Typescript used as the programming language.  
+CSS used for styling of application.  
+Google maps API was used for dynamic map.  
+Supabase postgresql database service was used to store report sightings.  
 
-## project outline
+## Project outline
 This project is for the frontend task.
 
 It meets the following requirements:
